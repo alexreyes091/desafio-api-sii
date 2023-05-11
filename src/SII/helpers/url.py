@@ -1,15 +1,9 @@
 import requests
+
+# CONSTANTES
 URL_BASE = 'https://www.sii.cl/valores_y_fechas/'
 
-# VALIDACIONES DE ENTRADA
-def isValidYear(year: str):
-    'La fecha mínima que se puede consultar es el 01-01-2013, y no hay fecha máxima, ya que la tabla se actualiza constantemente.'
-    
-    if len(year) != 4: return False
-    if int(year) < 2013: return False
-    return True
-
-
+# FUNCIONES AUXILIARES
 def statusRequest(url: str):
     'Retorna True si la url es válida, False en caso contrario.'
 
@@ -21,15 +15,17 @@ def statusRequest(url: str):
 
 
 # MAIN FUNCTION
-def get_url(year: str, type: str = 'uf'):
+def getURL(year: str, type: str = 'uf'):
     'Retorna la url de la tabla de valores del SII para el año y tipo de valor indicado.'
 
     #1. Validaciones de entrada
-    if not isValidYear(year): return None
     if type not in ['uf', 'utm', 'dolar']: return None
 
     #2. Definicion de la url
     URL = f'{URL_BASE}{type}/{type}{year}.htm'
 
-    #3. Devolvemos el status de la url
-    return statusRequest(URL)
+    #3. Devolvemos el status de la url y lo evaluamos para retornar la url o None
+    if(statusRequest(URL) == 200): 
+        return URL
+    else:
+        return None

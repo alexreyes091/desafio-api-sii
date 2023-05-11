@@ -1,4 +1,8 @@
-from SSI.helpers.url import get_url
+from SII.UnidadFomento import UnidadFomento
 
-print(get_url('2023'))
 
+uf = UnidadFomento()
+
+uf.date = (2011, 1, 9)
+
+print(uf.getUF())
