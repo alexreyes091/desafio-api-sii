@@ -39,7 +39,7 @@ class DateSII:
             self._day = value
     
     def _is_valid_year(self, year):
-        return year >= 2013
+        return year >= 1900
     
     def _is_valid_month(self, month):
         return 1 <= month <= 12

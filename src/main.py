@@ -1,8 +1,15 @@
 from SII.UnidadFomento import UnidadFomento
+from SII.ScrapingSII import ScrapingSII
 
 
-uf = UnidadFomento()
+def main():
+    uf = UnidadFomento()
+    uf.date = [2013, 1, 1]
+    url = uf.getUrl()
+    
+    if(uf.isValidUrl(url)):
+        scrap = ScrapingSII(url)
+        scrap.getDataScrap(date=uf.date)
 
-uf.date = (2011, 1, 9)
-
-print(uf.getUF())
+if __name__ == "__main__":
+    main()
