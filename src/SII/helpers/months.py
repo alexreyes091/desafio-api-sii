@@ -2,19 +2,19 @@
 def getMonth(month: int):
 
     listMonths = {
-        0:'ALL_MONTHS',
-        1:'MES_ENERO',
-        2:'MES_FEBRERO',
-        3:'MES_MARZO',
-        4:'MES_ABRIL',
-        5:'MES_MAYO',
-        6:'MES_JUNIO',
-        7:'MES_JULIO',
-        8:'MES_AGOSTO',
-        9:'MES_SEPTIEMBRE',
-        10:'MES_OCTUBRE',
-        11:'MES_NOVIEMBRE',
-        12:'MES_DICIEMBRE',
+        0:'all_month',
+        1:'mes_enero',
+        2:'mes_febrero',
+        3:'mes_marzo',
+        4:'mes_abril',
+        5:'mes_mayo',
+        6:'mes_junio',
+        7:'mes_julio',
+        8:'mes_agosto',
+        9:'mes_septiembre',
+        10:'mes_octubre',
+        11:'mes_noviembre',
+        12:'mes_diciembre',
     }
 
     return listMonths.get(month)

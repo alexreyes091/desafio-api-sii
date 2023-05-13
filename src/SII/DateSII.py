@@ -11,6 +11,8 @@ class DateSII:
         self.month = month
         self.day = day
 
+    # GETTERS & SETTERS
+    #-------------------------------------------------------------------------------------------
     @property
     def year(self):
         return self._year
@@ -37,7 +39,15 @@ class DateSII:
     def day(self, value):
         if self._is_valid_day(value):
             self._day = value
+   
+    @property
+    def formatDate(self):
+        return [self.year, self.month, self.day]
+    #-------------------------------------------------------------------------------------------
     
+    
+    # VALIDACIONES GENERALES
+    #-------------------------------------------------------------------------------------------
     def _is_valid_year(self, year):
         return year >= 1900
     
@@ -46,7 +56,4 @@ class DateSII:
     
     def _is_valid_day(self, day):
         return 1 <= day <= 31
-    
-    @property
-    def formatDate(self):
-        return [self.year, self.month, self.day]
+    #-------------------------------------------------------------------------------------------

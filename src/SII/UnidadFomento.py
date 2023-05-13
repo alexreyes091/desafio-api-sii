@@ -9,6 +9,8 @@ class UnidadFomento:
         self._date = DateSII(year, month, day)
         self._minDate = DateSII(2013, 1, 1)
 
+    # GETTERS & SETTERS
+    #-------------------------------------------------------------------------------------------
     @property
     def date(self):
         return self._date
@@ -26,7 +28,11 @@ class UnidadFomento:
     def minDate(self, dateTuple: [int] = [2013, 1, 1]):
         year, month, day = dateTuple
         self._minDate = DateSII(year, month, day)
+    #-------------------------------------------------------------------------------------------
 
+
+    # VALIDACIONES GENERALES
+    #-------------------------------------------------------------------------------------------
     def isValidDate(self):
         'Retorna True si la fecha es válida, False en caso contrario.'
     
@@ -40,16 +46,21 @@ class UnidadFomento:
     def isValidUrl(self, url: str = ''):
         '''Retorna True si la URL es válida, False en caso contrario.'''
         return statusRequest(url) == 200
+    #-------------------------------------------------------------------------------------------
 
 
+    # MAIN FUNCTION
+    #-------------------------------------------------------------------------------------------
     def getUrl(self, type: str = 'uf'):
-        '''Retorna la URL de la fecha especificada entre los tipos "uf", "dolar", o "utm",
-        o devuelve None si la fecha no es válida.'''
+        '''Retorna la URL de la fecha especificada entre los tipos "uf", "dolar", o "utm".
+        Devuelve "None" si la fecha no es válida.'''
         
-        if not self.isValidDate(): return None
+        if not self.isValidDate(): 
+            print(f"ERROR: La fecha ingresada debe de ser mayor a la fecha minima definida: ", self.minDate.formatDate)
+            return
 
         year, month, day = self._date.formatDate
         url = getURL(year, type)
         
         return url
-    
+    #-------------------------------------------------------------------------------------------

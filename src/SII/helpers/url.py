@@ -5,21 +5,23 @@ URL_BASE = 'https://www.sii.cl/valores_y_fechas/'
 
 # FUNCIONES AUXILIARES
 def statusRequest(url: str):
-    'Retorna True si la url es válida, False en caso contrario.'
+    'Retorna el estado de conexion 200 | 404'
 
     try:
         urlRequest = requests.get(url)
         return urlRequest.status_code
     except:
-        return urlRequest.status_codes.codes['not_found']
-
+        print("ERROR: La conexion ha fallado, favor validar la URL o conexion a internet.")
+        return 404
 
 # MAIN FUNCTION
 def getURL(year: str, type: str = 'uf'):
     'Retorna la url de la tabla de valores del SII para el año y tipo de valor indicado.'
 
     #1. Validaciones de entrada
-    if type not in ['uf', 'utm', 'dolar']: return None
+    if type not in ['uf', 'utm', 'dolar']: 
+        print('ERROR: El formato de tipo no es valido.')
+        return None
 
     #2. Definicion de la url
     URL = f'{URL_BASE}{type}/{type}{year}.htm'
