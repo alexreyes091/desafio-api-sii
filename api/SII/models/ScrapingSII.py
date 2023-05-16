@@ -203,23 +203,37 @@ class ScrapingSII:
 
             # 3. Si la URL es válida, entonces obtenemos los datos.
             if req.status_code == 200:
-                
-                match typeSearch:
-                    case 'day':
+                # This code for Python 3.10
+                # match typeSearch:
+                #     case 'day':
+                #         tempDataScrap = self.getDataPerDay(req, idTagMonth, idTagDay)
+                #         self.saveDataScrap(date, tempDataScrap)
+
+                #     case 'month':
+                #         tempDataScrap = self.getDataPerMonth(req, idTagMonth)
+                #         self.saveDataScrap(date, tempDataScrap)
+
+                #     case 'year':
+                #         tempDataScrap = self.getDataPerYear(req, idTagYear)
+                #         self.saveDataScrapYear(date, tempDataScrap)
+                    
+                #     case _:
+                #         print('ERROR: El tipo de busqueda no es valido.')
+                #         return
+
+                if typeSearch == 'day':
                         tempDataScrap = self.getDataPerDay(req, idTagMonth, idTagDay)
                         self.saveDataScrap(date, tempDataScrap)
-
-                    case 'month':
+                elif typeSearch == 'month':
                         tempDataScrap = self.getDataPerMonth(req, idTagMonth)
                         self.saveDataScrap(date, tempDataScrap)
 
-                    case 'year':
+                elif typeSearch == 'year':
                         tempDataScrap = self.getDataPerYear(req, idTagYear)
                         self.saveDataScrapYear(date, tempDataScrap)
-                    
-                    case _:
-                        print('ERROR: El tipo de busqueda no es valido.')
-                        return
+                else: 
+                    print('ERROR: El tipo de busqueda no es valido.')
+                    return
 
                 return self.allDataScrap
             else:
