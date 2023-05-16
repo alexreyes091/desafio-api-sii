@@ -1,5 +1,5 @@
-from SII.models.DateSII import DateSII
-from SII.helpers.url import getURL, statusRequest, unitTypes
+from api.SII.models.DateSII import DateSII
+from api.SII.helpers.url import getURL, statusRequest, unitTypes
 
 class UnidadFomento:
     '''Clase que muestra la unidad de fomento en un momento dado (fecha) 

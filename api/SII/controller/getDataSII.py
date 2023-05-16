@@ -1,6 +1,6 @@
-from SII.models.UnidadFomento import UnidadFomento
-from SII.models.ScrapingSII import ScrapingSII
-from SII.models.DateSII import DateSII
+from api.SII.models.UnidadFomento import UnidadFomento
+from api.SII.models.ScrapingSII import ScrapingSII
+from api.SII.models.DateSII import DateSII
 
 
 def evaluateDate(date):

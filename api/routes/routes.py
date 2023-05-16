@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from fastapi.responses import RedirectResponse
-from SII.controller.getDataSII import getDataSII
+from api.SII.controller.getDataSII import getDataSII
 
 router = APIRouter(prefix="",
                 tags=["Scraping SII"],

@@ -1,7 +1,7 @@
 import requests
-from SII.models.DateSII import DateSII
+from api.SII.models.DateSII import DateSII
 from bs4 import BeautifulSoup
-from SII.helpers.tagsTable import getTagOfTable
+from api.SII.helpers.tagsTable import getTagOfTable
 
 class ScrapingSII:
     '''Clase que permite obtener la UF de una fecha específica desde el sitio web del SII.''' 
