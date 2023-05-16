@@ -11,7 +11,7 @@ async def root():
     return RedirectResponse("/docs")
 
 
-@router.get("api/sii/date/{typeSearch}/{unitFoment}/{date}")
+@router.get("/api/sii/date/{typeSearch}/{unitFoment}/{date}")
 async def dataSII(date: str, typeSearch = str, unitFoment = str):
     return getDataSII(date, typeSearch, unitFoment)
 
