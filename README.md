@@ -77,3 +77,5 @@ http://127.0.0.1:8000/api/sii/date/{typeSearch}/{unitFoment}/{date}
 ## Bugs to fix
 ---
 
+- La busqueda por: 'year' en tipo de unidad 'dolar', no devuelve la data completa.
+<!--  -->
