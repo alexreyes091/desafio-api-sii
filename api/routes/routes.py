@@ -1,10 +1,16 @@
-from fastapi import APIRouter
+#Fastapi
+from fastapi import APIRouter, Depends
 from fastapi.responses import RedirectResponse
+# JWT & API
 from api.SII.controller.getDataSII import getDataSII
+from auth.routes.routes import oauth_schema
+# Middlewares
+from auth.middlewares.verifyToken import VerifyTokenRoute
 
-router = APIRouter(prefix="",
-                tags=["Scraping SII"],
-                responses={404: {"description": "Not found in SII"}})
+
+router = APIRouter(route_class = VerifyTokenRoute,
+                prefix="",
+                tags=["Scraping SII"])
 
 @router.get('/')
 async def root():
@@ -12,6 +18,6 @@ async def root():
 
 
 @router.get("/api/sii/date/{typeSearch}/{unitFoment}/{date}")
-async def dataSII(date: str, typeSearch = str, unitFoment = str):
+async def dataSII(date: str, typeSearch = str, unitFoment = str, token=Depends(oauth_schema)):
     return getDataSII(date, typeSearch, unitFoment)
 
