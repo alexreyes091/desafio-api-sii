@@ -42,7 +42,7 @@ Para ayudarte en el desarrollo de este desafío, puedes utilizar la tabla de val
 ##### 3.  Ejecutar el main.py
 
 ```bash
-> uvicorn main:app --reload
+> python main.py
 ```
 
 ## Detalles de Uso
